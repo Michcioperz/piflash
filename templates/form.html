@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>pi-flash</title>
+	</head>
+	<body>
+		<div class="container">
+			<div class="jumbotron">
+				<h1>make</h1>
+				<form method="POST" action="{{ url_for('make') }}">
+					<textarea name="code"></textarea>
+					<input type="submit">
+				</form> 
+			</div>
+		</div>
+	</body>
+</html>
