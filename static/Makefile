@@ -8,4 +8,4 @@ clean:
 	avr-objcopy -O ihex $^ $@
 
 %.flash: %.hex
-	avrdude -c usbasp -p m8 -U flash:w:$^
+	sudo avrdude -c usbasp -p m8 -U flash:w:$^

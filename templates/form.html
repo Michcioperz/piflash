@@ -2,15 +2,15 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
+		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
 		<title>pi-flash</title>
 	</head>
 	<body>
 		<div class="container">
 			<div class="jumbotron">
-				<h1>make</h1>
 				<form method="POST" action="{{ url_for('make') }}">
-					<textarea name="code"></textarea>
-					<input type="submit">
+					<textarea class="form-control" placeholder="#include <avr/io.h>" name="code"></textarea>
+					<button class="btn btn-primary pull-right" type="submit">make</button>
 				</form> 
 			</div>
 		</div>

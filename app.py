@@ -16,7 +16,7 @@ if not os.path.exists(os.path.join('static','err.log')):
 def make():
 	if request.method == 'POST':
 		with open('static/main.cpp', 'w') as file:
-			file.write(request.form['code'])
+			file.write(request.form['code'].encode('utf8'))
 		subprocess.call(['bash', 'doit.sh'])
 		return redirect(url_for('index'))
 	return render_template('form.html')
@@ -32,12 +32,12 @@ def stdout():
 
 @app.route("/stderr")
 def stderr():
-	with open('/static/err.log') as errlog:
+	with open('static/err.log') as errlog:
 		return errlog.read()
 
 if __name__ == '__main__':
     parser = ArgumentParser()
-    parser.add_argument('-h', '--host', type=str, default='0.0.0.0')
+    parser.add_argument('--host', type=str, default='0.0.0.0')
     parser.add_argument('-p', '--port', type=int, default=8123)
     args = parser.parse_args()
     app.run(debug=True, host=args.host, port=args.port)
