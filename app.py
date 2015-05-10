@@ -16,7 +16,7 @@ if not os.path.exists(os.path.join('static','err.log')):
 def make():
     if request.method == 'POST':
         with open('static/main.cpp', 'w') as f:
-            file.write(request.form['code'].encode('utf8'))
+            f.write(request.form['code'].encode('utf8'))
         subprocess.call(['bash', 'doit.sh'])
         return redirect(url_for('index'))
     return render_template('form.html')
